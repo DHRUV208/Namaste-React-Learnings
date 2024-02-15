@@ -1,0 +1,28 @@
+{
+  "name": "namaste-react-learnings",
+  "version": "1.0.0",
+  "description": "this is namaste-react-learning ",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DHRUV208/Namaste-React-Learnings.git"
+  },
+  "keywords": [
+    "namaste-react"
+  ],
+  "author": "Dhruv Mehta",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.11.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ]
+}

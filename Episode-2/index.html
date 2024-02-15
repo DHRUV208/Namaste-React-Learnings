@@ -10,14 +10,7 @@
     <div id="root">
       <h1>Hello World !!</h1>
     </div>
-    <script
-      crossorigin
-      src="https://unpkg.com/react@18/umd/react.development.js"
-    ></script>
-    <script
-      crossorigin
-      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
-    ></script>
+   
     <script>
       const heading = document.createElement("h1");
       heading.innerHTML = "Heloo World from js";
@@ -32,6 +25,6 @@
         const root2 = ReactDOM.createRoot(document.getElementById("root"));
         root2.render(heading2);
     </script>
-    <script src="./Index.js"></script>
+    <script type="module" src="./Index.js"></script>
   </body>
 </html>
