@@ -5,7 +5,7 @@ import Body from "./components/Body";
 
 
 
-
+console.log(< Body />)
 const App = () => {
   return (
     <div className="app">

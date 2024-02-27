@@ -3,7 +3,7 @@ import { LOGO_URL } from "../utils/constants";
 const Header = () => {
     return (
       <div
-        classname="heading"
+        className="heading"
         style={{
           display: "flex",
           justifyContent: "space-between",
