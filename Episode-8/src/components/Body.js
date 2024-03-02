@@ -13,6 +13,7 @@ const Body = () => {
   const [searchText, setSearchText] = useState("");
 
   const [filtered, setFiltered] = useState([]);
+  
   useEffect(function () {
     console.log("useEffect Called");
     fetchData();
