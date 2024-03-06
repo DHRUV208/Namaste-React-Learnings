@@ -1,8 +1,11 @@
 import RestaurantCard from "./RestaurantCard";
-import resList from "../utils/mockData";
+// import resList from "../utils/mockData";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import { RESTAURANT_API } from "../utils/constants";
+// import useAllResData from "../utils/useAllResData";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -14,14 +17,17 @@ const Body = () => {
 
   const [filtered, setFiltered] = useState([]);
   
-  useEffect(function () {
-    console.log("useEffect Called");
-    fetchData();
-  }, []);
+  // const allResData = useAllResData();
+
+//   if (allResData === null)  {
+//     return <Shimmer />
+//  }
+useEffect(()=>{
+  fetchData();
+}, [])
+
   const fetchData = async function () {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.45970&lng=77.02820&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
+    const data = await fetch(RESTAURANT_API);
     const jsonData = await data.json();
     console.log("json:", jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     
@@ -29,6 +35,9 @@ const Body = () => {
     setFiltered(jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   };
   console.log("BODY RENDERED");
+
+  const onlineStatus = useOnlineStatus();
+  if( onlineStatus === false) return <h1>Looks like you are offline !!</h1>
 
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
