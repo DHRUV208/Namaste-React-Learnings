@@ -43,17 +43,17 @@ useEffect(()=>{
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="filter">
-        <div className="search">
+      <div className="filter flex">
+        <div className="search m-2 p-2">
           <input
             type="text"
-            className="search-box"
+            className="border border-solid border-black "
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
             value={searchText}
           ></input>
-          <button
+          <button className="px-4 py-2 bg-green-100 m-4 rounded-lg"
             onClick={() => {
               // Filter the restaurant card and update the ui
               // searchText
@@ -71,8 +71,9 @@ useEffect(()=>{
             Search
           </button>
         </div>
+        <div className="m-4 p-4 flex items-center">
         <button
-          className="filter-btn"
+          className=" px-4 py-2 border-solid border-black border-2 bg-gray-100 rounded-lg"
           onClick={() => {
             const filteredList = listOfRestaurants.filter(
               (res) =>{ return res.info.avgRating > 4}
@@ -83,8 +84,9 @@ useEffect(()=>{
         >
           Top affordable restaurants
         </button>
+        </div>
       </div>
-      <div className="rest-container">
+      <div className="flex flex-wrap" >
         {filtered.map((restaurant) => (
           <Link key={restaurant.info.id} to={"/restaurant/" + restaurant.info.id}><RestaurantCard  resData={restaurant} /></Link>
         ))}

@@ -3,7 +3,9 @@ import {useParams} from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 const RestaurantMenu = () => {
     const {resId} = useParams();
+    console.log("resId", resId);
     const resInfo = useRestaurantMenu(resId);
+    console.log("resInfo", resInfo);
 
   if (resInfo === null)  {
     return <Shimmer />
