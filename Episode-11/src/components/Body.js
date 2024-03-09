@@ -89,7 +89,7 @@ useEffect(()=>{
       <div className="flex flex-wrap" >
         {filtered.map((restaurant) => (
           <Link key={restaurant.info.id} to={"/restaurant/" + restaurant.info.id}>
-            {restaurant.data.promoted ? <RestaurantCardPromoted resData={restaurant} />: <RestaurantCard  resData={restaurant} /> }
+            {restaurant.info.avgRating>4 ? <RestaurantCardPromoted resData={restaurant} />: <RestaurantCard  resData={restaurant} /> }
             
             </Link>
         ))}
