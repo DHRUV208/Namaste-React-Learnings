@@ -2,12 +2,14 @@ import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
+import { useState } from "react";
 const RestaurantMenu = () => {
   const { resId } = useParams();
   console.log("resId", resId);
   const resInfo = useRestaurantMenu(resId);
   console.log("resInfo", resInfo);
 
+  const [showIndex, setShowIndex] = useState(null);
   if (resInfo === null) {
     return <Shimmer />;
   }
@@ -34,29 +36,23 @@ const RestaurantMenu = () => {
   return (
     <div className="text-center">
       <h1 className="font-bold my-6 text-2xl">{name}</h1>
-      <h3 className="font-bold text-lg">{cuisines.join(", ")}</h3>
+      <div className="flex items-center justify-center">
+        <h3 className="font-bold text-lg">{cuisines.join(", ")}</h3>
+        <h3 className="font-bold text-lg"> - {costForTwoMessage}</h3>
+        <h3 className="font-bold text-lg"> {avgRating}</h3>
+      </div>
+
       {/* categories accordian */}
-      {categories.map((category) => {
+      {categories.map((category, index) => {
         return (
           <RestaurantCategory
             key={category?.card?.card.title}
             data={category?.card?.card}
-            showItems={false}
+            showItems={index === showIndex && true}
+            setShowIndex={() => setShowIndex(index)}
           />
         );
       })}
-      <h3>{costForTwoMessage}</h3>
-      <h3>{avgRating}</h3>
-
-      <ul>
-        {itemCards.map((item) => {
-          return (
-            <li key={item.card.info.id}>
-              {item.card.info.name} - {"Rs. "} {item.card.info.price / 100}
-            </li>
-          );
-        })}
-      </ul>
     </div>
   );
 };

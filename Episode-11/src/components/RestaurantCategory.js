@@ -1,15 +1,15 @@
 import { useState } from "react";
 import ItemList from "./ItemList";
 
-const RestaurantCategory = ({ data }) => {
+const RestaurantCategory = ({ data, showItems, setShowIndex }) => {
 
-    const [showItems, setShowItems] = useState(false);
-    const [arrow, setArrow] = useState("down arrow");
+    // const [arrow, setArrow] = useState("down arrow");
     const handleClick = ()=> {
         console.log("clicked");
-        setShowItems(!showItems)
-        if (!showItems)  setArrow("up arrow");
-        else setArrow("down arrow");
+        setShowIndex(!showItems);
+        // setShowItems(!showItems)
+        // if (!showItems)  setArrow("up arrow");
+        // else setArrow("down arrow");
 
     }
   console.log(data);
@@ -20,7 +20,7 @@ const RestaurantCategory = ({ data }) => {
           <span className="font-bold text-lg ">
             {data.title} ({data.itemCards.length})
           </span>
-          <span>{arrow} </span>
+          <span>down arrow </span>
         </div>
         {/* Accordian Body */}
        { showItems &&  <ItemList items={data.itemCards} />}
