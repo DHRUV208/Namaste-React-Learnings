@@ -10,9 +10,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DHRUV208/Namaste-React-Learnings.git"
-  },
+  },                                                                                                     
   "keywords": [
-    "namaste-react"
+    "namaste-react"                 
   ],
   "author": "Dhruv Mehta",
   "license": "ISC",
