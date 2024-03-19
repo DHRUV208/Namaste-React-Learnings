@@ -10,9 +10,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DHRUV208/Namaste-React-Learnings.git"
-  },                                                                                                     
+  },
   "keywords": [
-    "namaste-react"                 
+    "namaste-react"
   ],
   "author": "Dhruv Mehta",
   "license": "ISC",
@@ -23,8 +23,10 @@
     "tailwindcss": "^3.4.1"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^9.1.0",
     "react-router-dom": "^6.22.1"
   },
   "browserslist": [
