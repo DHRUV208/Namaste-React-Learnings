@@ -25,7 +25,7 @@ const AppLayout = () => {
     const data = {
       name: "Dhruv Mehta",
     };
-    setUserInfo(data);
+    setUserInfo(data.name);
   }, []);
   return (
     <Provider store={appStore}>
@@ -37,7 +37,7 @@ const AppLayout = () => {
         {console.log("outlet - ", <Outlet />)}
       </div>
     </UserContext.Provider>
-    </Provider>
+     </Provider>
   );
 };
 
